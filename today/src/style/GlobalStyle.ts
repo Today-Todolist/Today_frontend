@@ -1,12 +1,12 @@
 import { createGlobalStyle } from "styled-components";
-import { colors, fonts } from "./theme";
+import { colors, fonts } from "./Theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
     font-family : 'Noto Sans KR', 'sans-serif';
-    font: ${fonts.body3};
-    color: ${colors.grayscale.black}; 
+    font-size: ${fonts.body3};
+    color: ${colors.grayscale.white}; 
     background: ${colors.grayscale.lightGray1};
   }
   table {
@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 `;
 
