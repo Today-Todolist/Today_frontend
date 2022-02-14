@@ -1,12 +1,13 @@
 import { ThemeProvider } from "styled-components";
-import theme from "./style/theme";
-import RootRouter from "./route";
+import theme from "./style/Theme";
+import RootRouter from "./router";
+import GlobalStyle from "./style/GlobalStyle";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div>me</div>
+        <GlobalStyle />
         <RootRouter />
       </ThemeProvider>
     </>
