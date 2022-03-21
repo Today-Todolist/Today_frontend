@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "SeoulHangangCBL";
+  font-weight: 400;
+  src: url("../assets/font/SeoulHangangCBL.woff");
+}
+
+@font-face {
+  font-family: "SeoulHangangB";
+  font-weight: 400;
+  src: url("../assets/font/SeoulHangangB.woff");
+}
+
+@font-face {
+  font-family: "SeoulHangangEB";
+  font-weight: 400;
+  src: url("../assets/font/SeoulHangangEB.woff");
+}
+
+@font-face {
+  font-family: "SeoulHangangM";
+  font-weight: 400;
+  src: url("../assets/font/SeoulHangangM.woff");
+}
