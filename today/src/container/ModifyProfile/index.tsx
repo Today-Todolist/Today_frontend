@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import ModifyProfile from "../../components/ModifyProfile";
 
 const ModifyProfileContainer = () => {
