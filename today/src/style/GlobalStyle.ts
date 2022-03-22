@@ -4,8 +4,8 @@ import { colors, fonts } from "./Theme";
 const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
-    font-family : 'Noto Sans KR', 'sans-serif';
-    font-size: ${fonts.body3};
+    font-family: "SeoulHangangEB";
+  font-size: ${fonts.body3};
     color: ${colors.grayscale.white}; 
     background: ${colors.grayscale.lightGray1};
   }
