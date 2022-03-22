@@ -25,6 +25,7 @@ export const LeftContent = styled.div`
   font-size: 22px;
   p {
     margin-top: 40px;
+    font-family: "SeoulHangangCBL";
   }
 `;
 

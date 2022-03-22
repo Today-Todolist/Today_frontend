@@ -64,10 +64,11 @@ export const Text = styled.div`
 
 export const MailBox = styled.div`
   width: 265px;
-  padding-top: 3px;
+  padding-top: 7px;
   height: 34px;
   border: 1px solid #ffffff;
   border-radius: 8px;
   color: #ffffff;
   text-align: center;
+  font-family: "SeoulHangangCBL";
 `;
