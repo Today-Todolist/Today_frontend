@@ -5,7 +5,6 @@ export const TextBox = styled.div`
   padding-left: 10px;
   margin-bottom: 9px;
   span {
-    font-family: "SeoulHangang CEB";
     font-size: 20px;
     color: #000000;
   }
@@ -30,7 +29,6 @@ export const UserBox = styled.div`
     margin-right: 4px;
   }
   span {
-    font-family: "SeoulHangang CEB";
     font-size: 18px;
     color: #000000;
   }
@@ -47,7 +45,6 @@ export const TemplateBox = styled.div`
     margin-right: 4px;
   }
   span {
-    font-family: "SeoulHangang CEB";
     font-size: 15px;
     color: #000000;
   }

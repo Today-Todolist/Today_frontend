@@ -17,7 +17,6 @@ export const Header = styled.div`
 `;
 
 export const Text = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 18px;
   color: #000000;
 `;

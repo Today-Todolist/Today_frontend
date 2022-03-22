@@ -36,7 +36,6 @@ export const Profile = styled.div`
 
 export const TextBox = styled.div`
   p {
-    font-family: "SeoulHangang CEB";
     font-size: 30px;
     color: #000000;
     :nth-child(2) {
@@ -50,11 +49,10 @@ export const ModifyBtn = styled.div`
   height: 22px;
   background: #000000;
   border-radius: 15px;
-  font-family: "SeoulHangang CEB";
   font-size: 15px;
   text-align: center;
   color: #ffffff;
-  padding-top: 3px;
+  padding-top: 5px;
 `;
 
 export const SetBox = styled.div`
@@ -72,6 +70,7 @@ export const SetContent = styled.div<{ click: boolean }>`
   border-left: ${(props) => (props.click ? "5px solid #000000" : "none")};
   span {
     margin-left: 10px;
+    font-size: 25px;
   }
 `;
 
