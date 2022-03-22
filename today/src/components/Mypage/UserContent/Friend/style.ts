@@ -28,10 +28,9 @@ export const Profile = styled.div`
 `;
 
 export const NickName = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 25px;
   color: #ffffff;
-  margin: 5px 9px 0px;
+  margin: 8px 9px 0px;
 `;
 
 export const Email = styled(NickName)`
@@ -43,7 +42,7 @@ export const DeleteBtn = styled.div`
   width: 100px;
   height: 38px;
   border-radius: 15px;
-  padding: 9px 9px;
+  padding: 9px 14px;
   border: 1px solid #ffffff;
   color: #ffffff;
 `;

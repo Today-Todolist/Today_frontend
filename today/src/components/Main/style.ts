@@ -39,9 +39,10 @@ export const LogoBox = styled.div`
     height: 100px;
   }
   span {
+    font-family: "SeoulHangangCBL";
     color: #ffffff;
     font-size: 80px;
-    margin-left: 49px;
+    margin: 19px 49px;
   }
 `;
 
@@ -52,7 +53,8 @@ export const LogBtn = styled.div`
   color: #000000;
   margin: 30px auto;
   text-align: center;
-  padding-top: 16px;
+  padding-top: 19px;
+  font-family: "SeoulHangangCBL";
 `;
 
 export const SignBtn = styled(LogBtn)`
@@ -73,10 +75,12 @@ export const TodayBox = styled.div`
     font-size: 25px;
     :first-child {
       font-size: 60px;
+      font-family: "SeoulHangangCBL";
     }
   }
   span {
     font-size: 80px;
+    font-family: "SeoulHangangCBL";
   }
 `;
 
@@ -110,6 +114,7 @@ export const MemberBox = styled.div`
       font-size: 20px;
     }
     font-size: 25px;
+    margin-top: 5px;
   }
 `;
 

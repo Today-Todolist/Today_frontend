@@ -31,6 +31,7 @@ export const RightContent = styled.div`
   justify-content: space-between;
   width: 187px;
   color: #ffffff;
+  font-family: "SeoulHangangCBL";
   span {
     margin-top: 8px;
     font-size: 22px;
@@ -41,6 +42,6 @@ export const LoginBtn = styled.div`
   width: 90px;
   height: 38px;
   border: 1px solid #ffffff;
-  padding: 9px 15px;
+  padding: 9px 18px;
   border-radius: 8px;
 `;

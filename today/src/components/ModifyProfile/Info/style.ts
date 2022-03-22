@@ -15,13 +15,11 @@ export const TitleBox = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 25px;
   color: #000000;
 `;
 
 export const SubTitle = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 20px;
   color: #848484;
   margin: 6px 10px;
@@ -39,6 +37,7 @@ export const Input = styled.input`
   background: #ffffff;
   border: 1px solid #ebedf0;
   border-radius: 30px;
+  outline: none;
 `;
 
 export const ModifyBtn = styled.div`
@@ -49,7 +48,7 @@ export const ModifyBtn = styled.div`
   border-radius: 15px;
   margin-left: 21px;
   margin-top: 4px;
-  padding: 3px 8px;
+  padding: 6px 8px;
   font-size: 8px;
   text-align: center;
 `;
@@ -77,5 +76,5 @@ export const OnOffBtn = styled.div`
   margin-top: 4px;
   text-align: center;
   font-size: 8px;
-  padding: 3px 8px;
+  padding: 6px 8px;
 `;

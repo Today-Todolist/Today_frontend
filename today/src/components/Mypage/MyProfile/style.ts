@@ -23,16 +23,13 @@ export const Profile = styled.div`
 `;
 
 export const Name = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 30px;
-  line-height: 30px;
   color: #000000;
+  margin: 3px;
 `;
 
 export const Email = styled.div`
-  font-family: "SeoulHangang CEB";
   font-size: 20px;
-  line-height: 20px;
   color: #000000;
 `;
 
@@ -50,11 +47,10 @@ export const SetBox = styled.div`
   height: 22.15px;
   background: #000000;
   border-radius: 15px;
-  font-family: "SeoulHangang CEB";
   font-size: 15px;
   text-align: center;
   color: #ffffff;
-  padding-top: 3px;
+  padding-top: 5px;
 `;
 
 export const SearchContent = styled.div`
@@ -106,7 +102,6 @@ export const Templat = styled.div`
     margin-right: 4px;
   }
   span {
-    font-family: "SeoulHangang CEB";
     font-size: 15px;
     color: #000000;
   }
