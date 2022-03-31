@@ -1,5 +1,5 @@
 import * as S from "./style";
-import { FriendIcons, SearchIcons } from "../../../assets/Icons";
+import { SearchIcons } from "../../../assets/Icons";
 
 const MyProfile = () => {
   return (
@@ -14,7 +14,7 @@ const MyProfile = () => {
         </S.ProfileBox>
         <S.SortBox>
           <div>
-            <img src={FriendIcons} />
+            {/*   <img src={FriendIcons} /> */}
             <span>내 친구 12321</span>
           </div>
           <S.SetBox>정보 설정</S.SetBox>
