@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import NavType from "../../interface/Nav";
 import Email from "./Email";
 import NickName from "./NickName";
