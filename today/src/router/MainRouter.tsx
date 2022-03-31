@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   ModifyProfileConainer,
   MainContainer,
+  SearchContainer,
   MyPageContainer,
 } from "../container";
 
@@ -13,6 +14,7 @@ const MainRouter: FC = (): JSX.Element => {
         <Route path="/*">
           <Route path="" element={<MainContainer />} />
           <Route path="modifyprofile" element={<ModifyProfileConainer />} />
+          <Route path="search" element={<SearchContainer />} />
           <Route path="mypage" element={<MyPageContainer />} />
         </Route>
       </Routes>
