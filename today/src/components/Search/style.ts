@@ -20,7 +20,7 @@ export const TextBox = styled.div`
 `;
 
 export const Text = styled.div`
-  font-family: "SeoulHangang CEB";
+  font-family: "SeoulHangangCBL";
   font-size: 30px;
   color: #000000;
 `;
