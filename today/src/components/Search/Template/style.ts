@@ -7,13 +7,13 @@ export const TitleBox = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "SeoulHangang CEB";
+  font-family: "SeoulHangangCBL";
   font-size: 25px;
   color: #000000;
 `;
 
 export const SubTitle = styled.div`
-  font-family: "SeoulHangang CEB";
+  font-family: "SeoulHangangCBL";
   font-size: 20px;
   color: #848484;
   margin: 6px 10px;
@@ -36,7 +36,7 @@ export const UserBox = styled.div`
     margin-right: 4px;
   }
   span {
-    font-family: "SeoulHangang CEB";
+    font-family: "SeoulHangangCBL";
     font-size: 18px;
     color: #000000;
   }
@@ -53,7 +53,7 @@ export const TemplateBox = styled.div`
     margin-right: 4px;
   }
   span {
-    font-family: "SeoulHangang CEB";
+    font-family: "SeoulHangangCBL";
     font-size: 15px;
     color: #000000;
   }

@@ -90,7 +90,6 @@ export const Inputs = styled.input`
   color: #ffffff;
   font-size: 18px;
   margin-bottom: 13px;
-  font-family: "SeoulHangangEB";
 `;
 
 export const SubBtn = styled.div`
