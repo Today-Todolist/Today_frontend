@@ -18,3 +18,19 @@ export interface MyInfo {
 export const getMyProfile = async () => {
   return await request.get<MyInfo>(baseURL + `/info`);
 };
+
+export interface FriendContent {
+  email: string;
+  nickname: string;
+  profile: string;
+  status: number;
+}
+
+export interface ListFriends {
+  total_elements: number;
+  contents: FriendContent[];
+}
+
+export const getListFriends = async (email: string) => {
+  return await request.get<ListFriends>(baseURL + `${email}` + `/friends/`);
+};
