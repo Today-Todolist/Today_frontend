@@ -5,6 +5,8 @@ export const HeaderContainer = styled.div`
   height: 73px;
   border: 1px solid black;
   background-color: #000000;
+  position: fixed;
+  z-index: 10;
 `;
 
 export const Content = styled.div`
@@ -48,6 +50,7 @@ export const LoginBtn = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  position: fixed;
   z-index: 100;
   &.Overlay {
     background: rgba(113, 113, 113, 0.83);
@@ -69,6 +72,8 @@ export const SignupContainer = styled.div`
   width: 345px;
   height: 305px;
   text-align: center;
+  position: fixed;
+  z-index: 100;
 `;
 
 export const Logo = styled.img`
