@@ -7,6 +7,12 @@ export interface SignupType {
   nickname: string;
 }
 
-export const postSignup = async (data: SignupType) => {
+export const postMailSignup = async (data: SignupType) => {
   return await request.post(Uri + `sign-up/email`, data);
+};
+
+export const postSignup = async (email: string, token: string) => {
+  return await request.post(
+    Uri + `sign-up?email=` + `${email}` + `&token=` + `${token}`
+  );
 };
