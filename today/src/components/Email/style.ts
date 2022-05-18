@@ -12,12 +12,10 @@ export const Content = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid red;
   text-align: center;
 `;
 
 export const TextBox = styled.div`
-  border: 1px solid blue;
   margin: 40px auto 0px;
 `;
 
