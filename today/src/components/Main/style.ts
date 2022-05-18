@@ -132,3 +132,61 @@ export const MemberBox = styled.a`
 export const Line = styled.div`
   display: flex;
 `;
+
+export const ModalContainer = styled.div`
+  position: fixed;
+  z-index: 100;
+  &.Overlay {
+    background: rgba(113, 113, 113, 0.83);
+  }
+`;
+
+export const Modal = {
+  content: {
+    margin: "200px auto",
+    width: "440px",
+    height: "390px",
+    background: "#000000",
+    padding: "40px 45px",
+  },
+};
+
+export const SignupContainer = styled.div`
+  background: #000000;
+  width: 345px;
+  height: 305px;
+  text-align: center;
+  position: fixed;
+  z-index: 100;
+`;
+
+export const Logo = styled.img`
+  margin-bottom: 37px;
+`;
+
+export const ClcikContent = styled.div`
+  height: 220px;
+`;
+
+export const Inputs = styled.input`
+  width: 100%;
+  height: 44px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  outline: none;
+  background: #000000;
+  padding: 15px 20px;
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 13px;
+`;
+
+export const SubBtn = styled.div`
+  width: 100%;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding-top: 10px;
+  cursor: pointer;
+  font-family: "SeoulHangangCBL";
+`;
