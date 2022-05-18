@@ -32,6 +32,14 @@ export const BtnBox = styled.div`
   }
 `;
 
+export const Text = styled.div`
+  position: absolute;
+  top: 15.4%;
+  left: 50px;
+  width: 27px;
+  height: 433px;
+`;
+
 export const LogoBox = styled.div`
   display: flex;
   img {
@@ -53,7 +61,8 @@ export const LogBtn = styled.div`
   color: #000000;
   margin: 30px auto;
   text-align: center;
-  padding-top: 19px;
+  padding-top: 17px;
+  font-size: 24px;
   font-family: "SeoulHangangCBL";
 `;
 
@@ -66,7 +75,7 @@ export const SignBtn = styled(LogBtn)`
 export const TodayBox = styled.div`
   width: 808px;
   height: 156px;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   top: 1330px;
   left: 148px;
@@ -98,11 +107,13 @@ export const TeamInfoBox = styled.div`
   border-left: 4px solid black;
 `;
 
-export const MemberBox = styled.div`
+export const MemberBox = styled.a`
   width: 410px;
   height: 70px;
   margin-bottom: 35px;
   display: flex;
+  color: black;
+  text-decoration: none;
   img {
     margin-right: 9px;
   }
