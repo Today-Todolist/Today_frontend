@@ -1,6 +1,7 @@
 import * as S from "./style";
 import Header from "./Header";
 import Footer from "./Footer";
+import Modal from "react-modal";
 import {
   BackgroundIcons,
   PenIcons,
@@ -9,8 +10,26 @@ import {
   HKIcons,
   MainTextIcons,
 } from "../../assets/Icons";
+import { LoginLogo } from "../../assets/Logo";
+import { useState } from "react";
+import useFrom, { NameTypes } from "../../hook/useFrom";
+
+interface InputType extends NameTypes {
+  email: string;
+  password: string;
+}
 
 const Main = () => {
+  const [isOpenSignupModal, setOpenSignupModal] = useState<boolean>(false);
+  const [inputProps, [inputs, setInputs]] = useFrom<InputType>({
+    email: "",
+    password: "",
+  });
+
+  const onClickModal = () => {
+    setOpenSignupModal(!isOpenSignupModal);
+  };
+
   return (
     <>
       <Header />
@@ -22,7 +41,7 @@ const Main = () => {
               <span>오늘</span>
             </S.LogoBox>
             <p>당신 스스로 매일 계획하고 그 계획을 실천해보세요</p>
-            <S.LogBtn>로그인</S.LogBtn>
+            <S.LogBtn onClick={onClickModal}>로그인</S.LogBtn>
             <S.SignBtn>회원가입</S.SignBtn>
           </S.BtnBox>
           <img src={PenIcons} />
@@ -81,6 +100,23 @@ const Main = () => {
         <img src={BackgroundIcons}></img>
         <Footer />
       </S.MainContainer>
+      <S.ModalContainer>
+        <Modal
+          style={S.Modal}
+          overlayClassName={S.ModalContainer.Overlay}
+          isOpen={isOpenSignupModal}
+          onRequestClose={onClickModal}
+        >
+          <S.SignupContainer>
+            <S.Logo src={LoginLogo} />
+            <S.ClcikContent>
+              <S.Inputs placeholder="이메일" {...inputProps["email"]} />
+              <S.Inputs placeholder="비밀번호" {...inputProps["password"]} />
+              <S.SubBtn>로그인</S.SubBtn>
+            </S.ClcikContent>
+          </S.SignupContainer>
+        </Modal>
+      </S.ModalContainer>
     </>
   );
 };
