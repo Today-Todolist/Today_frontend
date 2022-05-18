@@ -1,5 +1,12 @@
 import { useMutation } from "react-query";
-import { postSignup, SignupType } from "../util/api/Auth";
+import { postMailSignup, postSignup, SignupType } from "../util/api/Auth";
+
+export const useMailSignup = () =>
+  useMutation((data: SignupType) => postMailSignup(data), {});
 
 export const useSignup = () =>
-  useMutation((data: SignupType) => postSignup(data), {});
+  useMutation(
+    ({ email, token }: { email: string; token: string }) =>
+      postSignup(email, token),
+    {}
+  );
