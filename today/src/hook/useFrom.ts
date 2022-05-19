@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from "react";
 
-const useFrom = (
-  initialValues: any,
-  onSubmit: (arg0: any) => void,
-  validate: (arg0: any) => React.SetStateAction<{}>
-) => {
-  const [values, setValues] = useState(initialValues);
-  const [errors, setErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
+type State<T> = [T, React.Dispatch<React.SetStateAction<T>>];
+type Value = string | number;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
-  };
+export type NameTypes = {
+  [key in string]: Value;
+};
 
-  const handleSubmit = async (event: any) => {
-    setSubmitting(true);
-    event.preventDefault();
-    await new Promise((r) => setTimeout(r, 1000));
-    setErrors(validate(values));
+interface InputProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  value: Value;
+}
+
+type DispatchInputProps<T> = {
+  [key in keyof T]: InputProps;
+};
+
+const useInputs = <T extends NameTypes>(
+  initValue: T,
+  debug?: boolean
+): [DispatchInputProps<T>, State<T>] => {
+  const [value, setValue] = useState<T>(initValue);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value: v } = e.target;
+    setValue({ ...value, [name]: v });
   };
 
   useEffect(() => {
-    if (submitting) {
-      if (Object.keys(errors).length === 0) {
-        onSubmit(values);
-      }
-      setSubmitting(false);
+    if (debug) {
+      console.log(value);
     }
-  }, [errors]);
+  }, [debug, value]);
 
-  return {
-    values,
-    errors,
-    submitting,
-    handleChange,
-    handleSubmit,
-  };
+  const inputProps = Object.keys(value).map((key) => {
+    return { onChange: onChange, name: key, value: value[key] };
+  });
+
+  return [
+    Object.keys(value).reduce(
+      (acc, curr, index) => ((acc[curr as keyof T] = inputProps[index]), acc),
+      {} as DispatchInputProps<T>
+    ),
+    [value, setValue],
+  ];
 };
 
-export default useFrom;
+export default useInputs;
