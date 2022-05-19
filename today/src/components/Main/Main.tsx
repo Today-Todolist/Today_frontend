@@ -13,6 +13,8 @@ import {
 import { LoginLogo } from "../../assets/Logo";
 import { useState } from "react";
 import useFrom, { NameTypes } from "../../hook/useFrom";
+import { useLogin } from "../../queries/Auth";
+import { useNavigate } from "react-router-dom";
 
 interface InputType extends NameTypes {
   email: string;
@@ -25,9 +27,33 @@ const Main = () => {
     email: "",
     password: "",
   });
+  const loginMutation = useLogin();
+  const navigate = useNavigate();
 
   const onClickModal = () => {
     setOpenSignupModal(!isOpenSignupModal);
+  };
+
+  const onSubmit = () => {
+    alert("로그인이 성공되었습니다.");
+    navigate("/mypage");
+  };
+
+  const onSubmitError = () => {
+    alert("로그인이 실패되었습니다.");
+  };
+
+  const onLogin = () => {
+    loginMutation.mutate(
+      {
+        email: inputs.email,
+        password: inputs.password,
+      },
+      {
+        onSuccess: onSubmit,
+        onError: onSubmitError,
+      }
+    );
   };
 
   return (
@@ -112,7 +138,7 @@ const Main = () => {
             <S.ClcikContent>
               <S.Inputs placeholder="이메일" {...inputProps["email"]} />
               <S.Inputs placeholder="비밀번호" {...inputProps["password"]} />
-              <S.SubBtn>로그인</S.SubBtn>
+              <S.SubBtn onClick={onLogin}>로그인</S.SubBtn>
             </S.ClcikContent>
           </S.SignupContainer>
         </Modal>
