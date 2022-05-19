@@ -1,5 +1,5 @@
 import Uri from "../../constant/baseUrl";
-import request from "../axios";
+import request, { instance } from "../axios";
 
 export interface SignupType {
   email: string;
@@ -15,4 +15,13 @@ export const postSignup = async (email: string, token: string) => {
   return await request.post(
     Uri + `sign-up?email=` + `${email}` + `&token=` + `${token}`
   );
+};
+
+export interface LoginType {
+  email: string;
+  password: string;
+}
+
+export const postLogin = async (data: LoginType) => {
+  return await instance.post(Uri + `login`, data);
 };
