@@ -22,6 +22,11 @@ export interface LoginType {
   password: string;
 }
 
+export interface TokenType {
+  access_token: string;
+  refresh_token: string;
+}
+
 export const postLogin = async (data: LoginType) => {
-  return await instance.post(Uri + `login`, data);
+  return await instance.post<TokenType>(Uri + `login`, data);
 };
