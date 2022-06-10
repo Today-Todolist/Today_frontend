@@ -15,6 +15,8 @@ import { useState } from "react";
 import useFrom, { NameTypes } from "../../hook/useFrom";
 import { useLogin } from "../../queries/Auth";
 import { useNavigate } from "react-router-dom";
+import { AxiosResponse } from "axios";
+import { TokenType } from "../../util/api/Auth";
 
 interface InputType extends NameTypes {
   email: string;
@@ -34,25 +36,34 @@ const Main = () => {
     setOpenSignupModal(!isOpenSignupModal);
   };
 
-  const onSubmit = () => {
+  const storageKeys = {
+    access_token: "access_token",
+    refresh_token: "refresh_token",
+  } as const;
+
+  const onSubmitSuccess = (data: AxiosResponse<TokenType, unknown>) => {
+    const { access_token, refresh_token } = data.data;
+    localStorage.setItem(storageKeys.access_token, access_token);
+    localStorage.setItem(storageKeys.refresh_token, refresh_token);
     alert("로그인이 성공되었습니다.");
     navigate("/mypage");
-  };
-
-  const onSubmitError = () => {
-    alert("로그인이 실패되었습니다.");
-  };
+  }
 
   const onLogin = () => {
     loginMutation.mutate(
+      
       {
         email: inputs.email,
         password: inputs.password,
       },
       {
-        onSuccess: onSubmit,
-        onError: onSubmitError,
+        onSuccess: (data) => {onSubmitSuccess(data)} ,
+        onError: () => {
+          setInputs({email : "", password: ""});
+          alert("로그인이 실패되었습니다.");
+        },
       }
+      
     );
   };
 
