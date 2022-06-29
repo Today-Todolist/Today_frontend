@@ -22,15 +22,15 @@ export const refresh = async (
   config: AxiosRequestConfig
 ): Promise<AxiosRequestConfig> => {
   const expireAt = localStorage.getItem(storage.expireAt);
-  let accessToken = localStorage.getItem(storage.accessToken);
-  const refreshToken = localStorage.getItem(storage.refreshToken);
+  let accessToken = localStorage.getItem(storage.access_token);
+  const refreshToken = localStorage.getItem(storage.refresh_token);
 
-  if (!refreshToken || !expireAt) {
-    window.location.href = "/";
-    localStorage.removeItem("expireAt");
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-  }
+  // if (!refreshToken || !expireAt) {
+  //   window.location.href = "/";
+  //   localStorage.removeItem("expireAt");
+  //   localStorage.removeItem("access_token");
+  //   localStorage.removeItem("refresh_token");
+  // }
 
   {
     /*if(new Date() >= new Date(expireAt)) {
@@ -39,6 +39,7 @@ export const refresh = async (
       }
   } */
   }
+  config.headers!["Authorization"] = `Bearer ${accessToken}`;
 
   return config;
 };

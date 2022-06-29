@@ -10,6 +10,7 @@ import {
   HKIcons,
   MainTextIcons,
 } from "../../assets/Icons";
+import storage from "../../constant/Storage";
 import { LoginLogo } from "../../assets/Logo";
 import { useState } from "react";
 import useFrom, { NameTypes } from "../../hook/useFrom";
@@ -43,8 +44,8 @@ const Main = () => {
 
   const onSubmitSuccess = (data: AxiosResponse<TokenType, unknown>) => {
     const { access_token, refresh_token } = data.data;
-    localStorage.setItem(storageKeys.access_token, access_token);
-    localStorage.setItem(storageKeys.refresh_token, refresh_token);
+    localStorage.setItem(storage.access_token, access_token);
+    localStorage.setItem(storage.refresh_token, refresh_token);
     alert("로그인이 성공되었습니다.");
     navigate("/mypage");
   }
