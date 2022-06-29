@@ -16,7 +16,7 @@ export interface MyInfo {
 }
 
 export const getMyProfile = async () => {
-  return await request.get<MyInfo>(baseURL + `/info`);
+  return await request.get<MyInfo>(baseURL + `info`);
 };
 
 export interface FriendContent {
@@ -37,7 +37,7 @@ export const getListFriends = async (
   size: number
 ) => {
   return await request.get<ListFriends>(
-    baseURL + `${email}` + `/friends/?page=` + `${page}` + `&size=` + `${size}`
+    baseURL + `${email}` + `friends/?page=` + `${page}` + `&size=` + `${size}`
   );
 };
 
@@ -60,8 +60,8 @@ export interface User {
 }
 
 export interface Templates {
-  user: User;
-  template: Template;
+  user: User[];
+  template: Template[];
 }
 
 export const getRecommTemplates = async () => {
