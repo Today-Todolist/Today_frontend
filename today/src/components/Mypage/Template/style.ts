@@ -21,7 +21,7 @@ export const ContentBox = styled.div`
 
 export const UserBox = styled.div`
   display: flex;
-  div {
+  img {
     width: 22px;
     height: 22px;
     border: 1px solid red;

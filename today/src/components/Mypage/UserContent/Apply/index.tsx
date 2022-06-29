@@ -1,22 +1,27 @@
+import { useListFriendsApply } from "../../../../queries/User";
 import * as S from "./style";
 
 const Apply = () => {
+  // const { data } = useListFriendsApply(1, 100);
+
   return (
     <S.ContentList>
-      {new Array(8).fill(0).map((_, index) => (
-        <S.ContentBox>
-          <S.Content>
-            <div>
-              <S.Profile></S.Profile>
-              <S.NickName>제주도가이드</S.NickName>
-              <S.Email>jejuisland@gmail.com</S.Email>
-            </div>
-            <div>
+      {/* {data?.data.contents.map((item, index) => {
+        return (
+          <S.ContentBox>
+            <S.Content key={index}>
+              <div>
+                <S.Profile />
+                <S.NickName>{item.nickName}</S.NickName>
+                <S.Email>{item.email}</S.Email>
+              </div>
               <S.ApplyBtn>친구 신청</S.ApplyBtn>
-            </div>
-          </S.Content>
-        </S.ContentBox>
-      ))}
+            </S.Content>
+          </S.ContentBox>
+        );
+      })} */}
+      {/* {data?.data.contents === [] ? <div>현재 친구가 없습니다.</div> : null}
+       */}
     </S.ContentList>
   );
 };
