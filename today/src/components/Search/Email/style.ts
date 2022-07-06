@@ -39,11 +39,10 @@ export const Content = styled.div`
   }
 `;
 
-export const Profile = styled.div`
+export const Profile = styled.img`
   width: 38px;
   height: 38px;
   border-radius: 25px;
-  border: 1px solid blue;
 `;
 
 export const NickName = styled(Title)`
