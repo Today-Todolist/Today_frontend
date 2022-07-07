@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import NavType from "../../interface/Nav";
 import Email from "./Email";
 import NickName from "./NickName";
@@ -6,6 +7,8 @@ import * as S from "./style";
 import Template from "./Template";
 
 const ModifyProfile = () => {
+  const [searchParams] = useSearchParams();
+  const searchWord = useMemo(() => searchParams.get("q") || "", [searchParams]);
   const NickNameContent = 1;
   const EmailContent = 2;
   const TemplateContent = 3;
@@ -51,7 +54,7 @@ const ModifyProfile = () => {
     <S.Container>
       <S.SearchClickContent>
         <S.TextBox>
-          <S.Text>가나다라마바사</S.Text>
+          <S.Text>{searchWord}</S.Text>
           <S.SubText>총 100건의 결과</S.SubText>
         </S.TextBox>
         <S.SetBox>

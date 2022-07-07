@@ -33,7 +33,7 @@ export const SearchBar = styled.div`
   height: 34px;
   border: 1px solid #ffffff;
   border-radius: 15px;
-  padding-right: 8px;
+  padding-right: 12px;
   margin-left: 45px;
   display: flex;
   justify-content: space-between;

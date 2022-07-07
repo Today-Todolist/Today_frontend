@@ -15,7 +15,6 @@ export const SearchClickContent = styled.div`
 export const TextBox = styled.div`
   width: 213.22px;
   height: 51px;
-  border: 1px solid blue;
   margin: 47px 33px;
 `;
 
