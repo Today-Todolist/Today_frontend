@@ -1,12 +1,11 @@
 import * as S from "./style";
 import { SearchIcons } from "../../../assets/Icons";
 import { useMyProfile } from "../../../queries/User";
+import { useNavigate } from "react-router-dom";
 
 const MyProfile = () => {
   const { data } = useMyProfile();
-
-  console.log(data?.data)
-
+  const navigate = useNavigate();
 
   return (
     <S.MyProfileContainer>
@@ -23,7 +22,9 @@ const MyProfile = () => {
             {/*   <img src={FriendIcons} /> */}
             <span>내 친구 {data?.data.friends_amount}</span>
           </div>
-          <S.SetBox>정보 설정</S.SetBox>
+          <S.SetBox onClick={() => navigate(`/modifyprofile`)}>
+            정보 설정
+          </S.SetBox>
         </S.SortBox>
       </S.MyProfileContent>
       <S.SortBox>

@@ -1,6 +1,25 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useChangeNickName } from "../../../queries/Modify";
 import * as S from "./style";
 
 const Info = () => {
+  const [nickName, setNickName] = useState<string>("");
+  const [passWord, setPassWord] = useState<string>("");
+
+  const changeNickName = useChangeNickName();
+
+  const onClickNickName = () => {
+    changeNickName.mutate(nickName, {
+      onSuccess: () => {
+        toast.success("닉네임 변경이 성공했습니다.");
+      },
+      onError: () => {
+        toast.error("닉네임 변경이 실패되었습니다.");
+      },
+    });
+  };
+
   return (
     <S.ModifyBox>
       <S.ModifyContent>
@@ -9,8 +28,11 @@ const Info = () => {
           <S.SubTitle>자신의 닉네임을 변경합니다</S.SubTitle>
         </S.TitleBox>
         <S.InputBox>
-          <S.Input placeholder="바꿀 닉네임" />
-          <S.ModifyBtn>닉네임 변경</S.ModifyBtn>
+          <S.Input
+            placeholder="바꿀 닉네임"
+            onChange={(e) => setNickName(e.currentTarget.value)}
+          />
+          <S.ModifyBtn onClick={onClickNickName}>닉네임 변경</S.ModifyBtn>
         </S.InputBox>
       </S.ModifyContent>
       <S.ModifyContent>

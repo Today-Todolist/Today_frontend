@@ -37,34 +37,29 @@ const Main = () => {
     setOpenSignupModal(!isOpenSignupModal);
   };
 
-  const storageKeys = {
-    access_token: "access_token",
-    refresh_token: "refresh_token",
-  } as const;
-
   const onSubmitSuccess = (data: AxiosResponse<TokenType, unknown>) => {
     const { access_token, refresh_token } = data.data;
     localStorage.setItem(storage.access_token, access_token);
     localStorage.setItem(storage.refresh_token, refresh_token);
     alert("로그인이 성공되었습니다.");
     navigate("/mypage");
-  }
+  };
 
   const onLogin = () => {
     loginMutation.mutate(
-      
       {
         email: inputs.email,
         password: inputs.password,
       },
       {
-        onSuccess: (data) => {onSubmitSuccess(data)} ,
+        onSuccess: (data) => {
+          onSubmitSuccess(data);
+        },
         onError: () => {
-          setInputs({email : "", password: ""});
+          setInputs({ email: "", password: "" });
           alert("로그인이 실패되었습니다.");
         },
       }
-      
     );
   };
 
