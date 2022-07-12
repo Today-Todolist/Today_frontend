@@ -14,11 +14,10 @@ export const ProfileBox = styled.div`
   display: flex;
 `;
 
-export const Profile = styled.div`
+export const Profile = styled.img`
   width: 55px;
   height: 55px;
   border-radius: 35px;
-  border: 1px solid red;
   margin-right: 5px;
 `;
 

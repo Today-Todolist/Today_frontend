@@ -1,8 +1,11 @@
 import { HeaderLogo } from "../../assets/Logo";
 import * as S from "./style";
 import { SearchIcons, CheckIcons } from "../../assets/Icons";
+import { useMyProfile } from "../../queries/User";
 
 const Header = () => {
+  const { data } = useMyProfile();
+
   return (
     <S.HeaderContainer>
       <S.Content>
@@ -22,7 +25,7 @@ const Header = () => {
             <img src={CheckIcons} />
             <span>투두리스트</span>
           </S.Text>
-          <S.MailBox>todaytodolist@gmail.com</S.MailBox>
+          <S.MailBox>{data?.data.email}</S.MailBox>
         </S.RightContent>
       </S.Content>
     </S.HeaderContainer>

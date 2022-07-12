@@ -1,15 +1,73 @@
 import * as S from "./style";
 import Header from "./Header";
 import Footer from "./Footer";
+import Modal from "react-modal";
 import {
   BackgroundIcons,
   PenIcons,
   MoonIcons,
   DHIcons,
   HKIcons,
+  MainTextIcons,
 } from "../../assets/Icons";
+import storage from "../../constant/Storage";
+import { LoginLogo } from "../../assets/Logo";
+import { useState } from "react";
+import useFrom, { NameTypes } from "../../hook/useFrom";
+import { useLogin } from "../../queries/Auth";
+import { useNavigate } from "react-router-dom";
+import { AxiosResponse } from "axios";
+import { TokenType } from "../../util/api/Auth";
+
+interface InputType extends NameTypes {
+  email: string;
+  password: string;
+}
 
 const Main = () => {
+  const [isOpenSignupModal, setOpenSignupModal] = useState<boolean>(false);
+  const [inputProps, [inputs, setInputs]] = useFrom<InputType>({
+    email: "",
+    password: "",
+  });
+  const loginMutation = useLogin();
+  const navigate = useNavigate();
+
+  const onClickModal = () => {
+    setOpenSignupModal(!isOpenSignupModal);
+  };
+
+  const storageKeys = {
+    access_token: "access_token",
+    refresh_token: "refresh_token",
+  } as const;
+
+  const onSubmitSuccess = (data: AxiosResponse<TokenType, unknown>) => {
+    const { access_token, refresh_token } = data.data;
+    localStorage.setItem(storage.access_token, access_token);
+    localStorage.setItem(storage.refresh_token, refresh_token);
+    alert("로그인이 성공되었습니다.");
+    navigate("/mypage");
+  }
+
+  const onLogin = () => {
+    loginMutation.mutate(
+      
+      {
+        email: inputs.email,
+        password: inputs.password,
+      },
+      {
+        onSuccess: (data) => {onSubmitSuccess(data)} ,
+        onError: () => {
+          setInputs({email : "", password: ""});
+          alert("로그인이 실패되었습니다.");
+        },
+      }
+      
+    );
+  };
+
   return (
     <>
       <Header />
@@ -21,10 +79,13 @@ const Main = () => {
               <span>오늘</span>
             </S.LogoBox>
             <p>당신 스스로 매일 계획하고 그 계획을 실천해보세요</p>
-            <S.LogBtn>로그인</S.LogBtn>
+            <S.LogBtn onClick={onClickModal}>로그인</S.LogBtn>
             <S.SignBtn>회원가입</S.SignBtn>
           </S.BtnBox>
-          <img src={PenIcons}></img>
+          <img src={PenIcons} />
+          <S.Text>
+            <img src={MainTextIcons} />
+          </S.Text>
         </S.TopContent>
         <S.TodayBox>
           <p>
@@ -39,7 +100,7 @@ const Main = () => {
         </S.TodayBox>
         <S.TeamBox>
           <p>
-            <span>오늘</span>개발팀
+            <span>오늘</span> 개발팀
           </p>
           <p>
             ‘오늘’ todolist는 대덕소프트웨어 마이스터고등학교 학생의
@@ -47,7 +108,11 @@ const Main = () => {
           </p>
         </S.TeamBox>
         <S.TeamInfoBox>
-          <S.MemberBox>
+          <S.MemberBox
+            href="https://github.com/dohyeon5626"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={DHIcons} />
             <div>
               <p>
@@ -56,7 +121,11 @@ const Main = () => {
               <p>kodohyeon71@gmail.com</p>
             </div>
           </S.MemberBox>
-          <S.MemberBox>
+          <S.MemberBox
+            href="https://github.com/kkyo4994"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={HKIcons} />
             <div>
               <p>
@@ -69,6 +138,23 @@ const Main = () => {
         <img src={BackgroundIcons}></img>
         <Footer />
       </S.MainContainer>
+      <S.ModalContainer>
+        <Modal
+          style={S.Modal}
+          overlayClassName={S.ModalContainer.Overlay}
+          isOpen={isOpenSignupModal}
+          onRequestClose={onClickModal}
+        >
+          <S.SignupContainer>
+            <S.Logo src={LoginLogo} />
+            <S.ClcikContent>
+              <S.Inputs placeholder="이메일" {...inputProps["email"]} />
+              <S.Inputs placeholder="비밀번호" {...inputProps["password"]} />
+              <S.SubBtn onClick={onLogin}>로그인</S.SubBtn>
+            </S.ClcikContent>
+          </S.SignupContainer>
+        </Modal>
+      </S.ModalContainer>
     </>
   );
 };

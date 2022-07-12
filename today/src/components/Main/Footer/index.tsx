@@ -8,8 +8,8 @@ const Footer = () => {
         <S.LeftContent>
           <span>
             해당 ‘오늘’ todolist는 대덕소프트웨어 마이스터고등학교 학생의
-            프로젝트 입니다. 악의적인 목적을 위한 행위은 삼가주시기
-            부탁드립니다.
+            프로젝트입니다.
+            <br /> 악의적인 목적을 위한 행위은 삼가주시기 부탁드립니다.
           </span>
           <p>email | today043149@gmail.com</p>
         </S.LeftContent>
