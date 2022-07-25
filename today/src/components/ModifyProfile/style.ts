@@ -52,6 +52,7 @@ export const ModifyBtn = styled.label`
   text-align: center;
   color: #ffffff;
   padding: 6px 8px;
+  cursor: pointer;
 `;
 
 export const SetBox = styled.div`
