@@ -49,6 +49,7 @@ export const SetBox = styled.div`
   font-size: 15px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
   padding-top: 5px;
 `;
 
