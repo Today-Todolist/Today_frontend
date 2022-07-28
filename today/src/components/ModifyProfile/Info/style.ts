@@ -51,6 +51,7 @@ export const ModifyBtn = styled.div`
   padding: 6px 8px;
   font-size: 8px;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const Line = styled.div`

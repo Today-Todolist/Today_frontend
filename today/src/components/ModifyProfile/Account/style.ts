@@ -51,6 +51,7 @@ export const ResetBtn = styled.div`
   padding: 5px 8px;
   font-size: 8px;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const DeleteTitle = styled(Title)`

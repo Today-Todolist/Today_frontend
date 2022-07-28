@@ -26,11 +26,10 @@ export const ProfileContent = styled.div`
   display: flex;
 `;
 
-export const Profile = styled.div`
+export const Profile = styled.img`
   width: 55px;
   height: 55px;
   border-radius: 50px;
-  border: 1px solid red;
   margin-right: 4px;
 `;
 
@@ -44,15 +43,16 @@ export const TextBox = styled.div`
   }
 `;
 
-export const ModifyBtn = styled.div`
-  width: 92px;
+export const ModifyBtn = styled.label`
+  width: 100px;
   height: 22px;
   background: #000000;
   border-radius: 15px;
   font-size: 15px;
   text-align: center;
   color: #ffffff;
-  padding-top: 5px;
+  padding: 6px 8px;
+  cursor: pointer;
 `;
 
 export const SetBox = styled.div`
