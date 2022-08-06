@@ -7,3 +7,7 @@ export { default as SearchIcons } from "./Search.svg";
 export { default as CheckIcons } from "./Check.svg";
 export { default as FriendIcons } from "./Friend.svg";
 export { default as MainTextIcons } from "./MainText.svg";
+export { default as LeftArrowIcons } from "./LeftArrow.svg";
+export { default as RightArrowIcons } from "./RightArrow.svg";
+export { default as DownIcons } from "./Down.svg";
+export { default as AddIcons } from "./Add.svg";
