@@ -6,6 +6,7 @@ import {
   SearchContainer,
   MyPageContainer,
   MailLoadingContainer,
+  ToDoListContainer,
 } from "../container";
 
 const MainRouter: FC = (): JSX.Element => {
@@ -18,6 +19,7 @@ const MainRouter: FC = (): JSX.Element => {
           <Route path="modifyprofile" element={<ModifyProfileConainer />} />
           <Route path="search" element={<SearchContainer />} />
           <Route path="mypage" element={<MyPageContainer />} />
+          <Route path="todolist" element={<ToDoListContainer />} />
         </Route>
       </Routes>
     </Suspense>
